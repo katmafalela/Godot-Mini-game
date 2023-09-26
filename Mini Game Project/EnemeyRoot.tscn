@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://EnemeyRoot.gd" type="Script" id=1]
+
+[node name="EnemyRoot" type="Node2D" groups=["enemy"]]
+z_index = 5
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 4
+collision_mask = 10
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -64, 3, -53, 12, -50, 25, -40, 28, -34, 29, -32, 38, -18, 37, -10, 30, 0, 28, 18, 34, 53, 30, 45, 22, 48, 20, 55, 19, 57, 14, 63, 12, 57, 6, 57, 1, 52, -1, 63, -9, 50, -12, 59, -35, 46, -36, 25, -12, 16, -13, 14, -19, 12, -19, 10, -30, 0, -35, -16, -36, -23, -30, -26, -26, -29, -23, -31, -19, -37, -17, -43, -18, -50, -17, -51, -10, -52, -5 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
